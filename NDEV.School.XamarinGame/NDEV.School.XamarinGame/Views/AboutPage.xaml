@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NDEV.School.XamarinGame.Views.AboutPage"
+             xmlns:NDEV="clr-namespace:NDEV.Xamarin;assembly=NDEV.Xamarin">
+    <ContentPage.Content>
+        <NDEV:MyGrid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+                       
+            <NDEV:MyLabel Text="Created by Norbert Ollai" Grid.Row="1" Grid.Column="1" />
+        </NDEV:MyGrid>
+    </ContentPage.Content>
+</ContentPage>
