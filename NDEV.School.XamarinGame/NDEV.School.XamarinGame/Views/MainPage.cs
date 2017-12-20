@@ -19,23 +19,28 @@ namespace NDEV.School.XamarinGame
                 default:
                     this._settingsPage = new SettingsPage(this._mainPageController);
                     this._gamePlayPage = new GamePlayPage(this._mainPageController);
+                    this._sgPage = new SGPage();
                     this._aboutPage = new AboutPage();
                     break;
             }
 
-            this.Children.Add(_settingsPage);
-            this.Children.Add(_aboutPage);
+            this.Children.Add(this._settingsPage);
+            this.Children.Add(this._gamePlayPage);
+            this.Children.Add(this._sgPage);
+            this.Children.Add(this._aboutPage);
             
             this.Title = this.CurrentPage.Title;
         }
 
         private MainPageController _mainPageController;
         private Page _settingsPage;
-        private Page _gamePlayPage;
+        private GamePlayPage _gamePlayPage;
+        private Page _sgPage;
         private Page _aboutPage;
 
-        public void SwitchToGamePlay()
+        public void SwitchToGamePlay(GamePlayModeEnum gamePlayMode)
         {
+            this._gamePlayPage.SetGameSettings(gamePlayMode);
             this._switchWithAddAndRemove(this._gamePlayPage);
         }
 

@@ -15,9 +15,9 @@ namespace NDEV.School.XamarinGame.Views
         public AboutPage()
         {
             InitializeComponent();
-            this.Title = TITLE;
+            this.Title = PAGE_TITLE;
         }
 
-        private const string TITLE = "About";
+        private const string PAGE_TITLE = "About";
     }
 }

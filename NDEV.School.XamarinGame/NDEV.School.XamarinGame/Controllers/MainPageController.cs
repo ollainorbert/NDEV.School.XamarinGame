@@ -15,19 +15,25 @@ namespace NDEV.School.XamarinGame.Controllers
 
         private MainPage _mainPage;
 
-        public void SwitchToGamePlay()
+        public void SwitchToGamePlay(GamePlayModeEnum gamePlayMode)
         {
-            this._mainPage.SwitchToGamePlay();
+            //this._mainPage.SwitchToGamePlay(gamePlayMode);
         }
 
         public void SwitchToSettings()
         {
-            this._mainPage.SwitchToSettingsPage();
+            //this._mainPage.SwitchToSettingsPage();
         }
 
         private void _switchBetweenSettingsAndGamePlayPage()
         {
 
         }
+    }
+
+    public enum GamePlayModeEnum
+    {
+        PvP,
+        PvE
     }
 }

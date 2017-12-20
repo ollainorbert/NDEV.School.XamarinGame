@@ -1,4 +1,5 @@
 ﻿using NDEV.School.XamarinGame.Controllers;
+using NDEV.Xamarin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,18 +17,30 @@ namespace NDEV.School.XamarinGame.Views
         public SettingsPage(MainPageController mainPageController)
         {
             InitializeComponent();
-            this.Title = TITLE;
+            this.Title = PAGE_TITLE;
 
             this._mainPageController = mainPageController;
-            this.pveButton.Clicked += PveButton_Clicked;
         }
 
         private MainPageController _mainPageController;
-        private const string TITLE = "Settings";
+        private const string PAGE_TITLE = "Settings";
 
-        private void PveButton_Clicked(object sender, EventArgs e)
+        private void GamePlayButton_Clicked(object sender, EventArgs e)
         {
-            this._mainPageController.SwitchToGamePlay();
+            if (sender is MyButton button)
+            {
+                if (button.Equals(this.pveButton))
+                {
+                    this._mainPageController.SwitchToGamePlay(GamePlayModeEnum.PvE);
+                }
+                else
+                {
+                    this._mainPageController.SwitchToGamePlay(GamePlayModeEnum.PvP);
+                }
+            }
         }
+
+
+
     }
 }

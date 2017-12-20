@@ -5,8 +5,14 @@
              xmlns:NDEV="clr-namespace:NDEV.Xamarin;assembly=NDEV.Xamarin">
     <ContentPage.Content>
         <NDEV:MyGrid>
-            
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+
+            <NDEV:ScoreBoardGrid x:Name="scoreBoardGrid" Grid.Row="0" />
+            <NDEV:TicTacToeGameBoardGrid x:Name="gameBoardGrid" Grid.Row="1" />
+
         </NDEV:MyGrid>
     </ContentPage.Content>
 </ContentPage>

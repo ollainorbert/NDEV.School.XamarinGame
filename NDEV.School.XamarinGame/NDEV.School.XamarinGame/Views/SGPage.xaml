@@ -1,22 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NDEV.School.XamarinGame.Views.SettingsPage"
+             x:Class="NDEV.School.XamarinGame.Views.SGPage"
              xmlns:NDEV="clr-namespace:NDEV.Xamarin;assembly=NDEV.Xamarin">
     <ContentPage.Content>
         <NDEV:MyGrid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="1*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="5*" />
-                <RowDefinition Height="2*" />
-            </Grid.RowDefinitions>
-
-            <NDEV:MyLabel Text="Enter the number that need for win!" Grid.Row="0" />
-            <NDEV:MyNumEntry x:Name="winNumberEntry" Grid.Row="2" />
-
-            <NDEV:MyGrid Grid.Row="4">
+            <NDEV:MyGrid x:Name="prepGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
@@ -25,6 +14,8 @@
                 <NDEV:MyButton x:Name="pveButton" Text="Player VS Bot" Grid.Column="0" Clicked="GamePlayButton_Clicked" />
                 <NDEV:MyButton x:Name="pvpButton" Text="Player VS Player" Grid.Column="1" Clicked="GamePlayButton_Clicked" />
             </NDEV:MyGrid>
+
+            <NDEV:TicTacToeGameBoardGrid x:Name="gameBoardGrid" IsVisible="False" />
 
         </NDEV:MyGrid>
     </ContentPage.Content>

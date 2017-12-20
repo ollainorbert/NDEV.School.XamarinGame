@@ -26,6 +26,12 @@ namespace NDEV.Xamarin
         {
             this.BackgroundColor = Color.LightBlue;
         }
+
+        protected void _setElementGridPosition(BindableObject bindableObject, int rowIndex, int columnIndex)
+        {
+            Grid.SetRow(bindableObject, rowIndex);
+            Grid.SetColumn(bindableObject, columnIndex);
+        }
     }
 
     public class MyLabel : Label
@@ -77,9 +83,10 @@ namespace NDEV.Xamarin
             this._defaultBorderColor = (Color)Button.BorderColorProperty.DefaultValue;
             this._defaultBorderWidth = (Double)Button.BorderWidthProperty.DefaultValue;
             this._checkedBackgroundColor = Color.Orange;
-            this._checkedBackgroundColor = Color.DarkOrange;
+            this._checkedBorderColor = Color.DarkOrange;
             this._checkedBorderWidth = 3;
             this.IsClicked = false;
+            this.IsClickingEnabled = true;
 
             this.Clicked += MyCheckerButton_Clicked;
         }
@@ -92,19 +99,23 @@ namespace NDEV.Xamarin
         private Color _checkedBorderColor;
         private double _checkedBorderWidth;
         public bool IsClicked { get; private set; }
+        public bool IsClickingEnabled { get; set; }
         #endregion Variables
 
         private void MyCheckerButton_Clicked(object sender, EventArgs e)
         {
-            this.IsClicked = !this.IsClicked;
+            if (this.IsClickingEnabled)
+            {
+                this.IsClicked = !this.IsClicked;
 
-            if (this.IsClicked)
-            {
-                this._switchTheActiveDesign(this._checkedBackgroundColor, this._checkedBorderColor, this._checkedBorderWidth);
-            }
-            else
-            {
-                this._switchTheActiveDesign(this._defaultBackgroundColor, this._defaultBorderColor, this._defaultBorderWidth);
+                if (this.IsClicked)
+                {
+                    this._switchTheActiveDesign(this._checkedBackgroundColor, this._checkedBorderColor, this._checkedBorderWidth);
+                }
+                else
+                {
+                    this._switchTheActiveDesign(this._defaultBackgroundColor, this._defaultBorderColor, this._defaultBorderWidth);
+                }
             }
         }
 
